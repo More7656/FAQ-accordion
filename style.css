@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  background: linear-gradient(180deg, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+  min-height: 100vh;
+  font-family: "Kumbh Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  padding: 2rem;
+  width: 100%;
+  max-width: 992px;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  position: relative;
+}
+
+.imgs {
+  flex: 0 1 40%;
+  background-image: url(./images/bg-pattern-desktop.svg);
+  background-position: right;
+  background-size: 200%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+}
+
+.imgs__img {
+  transform: scale(120%);
+  transform-origin: right;
+  width: 100%;
+}
+
+.imgs__box {
+  position: absolute;
+  left: -97px;
+  top: 40%;
+  z-index: 1;
+}
+.text {
+  flex: 1 1 60%;
+  padding: 4rem;
+}
+
+.heading {
+  font-size: 35px;
+  margin-bottom: 2rem;
+}
+
+.accordion__item {
+  padding-block: 1.5rem;
+  border-bottom: 1px solid rgb(131, 126, 126);
+}
+
+.accordion__question {
+  font-weight: 400;
+  position: relative;
+}
+
+.accordion__question:hover {
+  color: orange;
+}
+
+.accordion__item.active .accordion__question {
+  font-weight: 700;
+}
+
+.accordion__item.active .accordion__question::after {
+  transform: rotate(180deg);
+}
+
+.accordion__item.active .accordion__answer {
+  display: block;
+}
+
+.accordion__question::after {
+  content: "";
+  background-image: url(./images/icon-arrow-down.svg);
+  width: 10px;
+  height: 7px;
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+}
+
+.accordion__answer {
+  font-weight: 400;
+  font-size: 1.1rem;
+  display: none;
+  margin-top: 0.85rem;
+}
+
+@media (width < 950px) {
+  main {
+    padding-block: 10rem;
+  }
+  .card {
+    flex-direction: column;
+  }
+  .imgs__box {
+    display: none;
+  }
+  .imgs__img {
+    max-width: 300px;
+    transform: scale(1) translateY(-50%);
+  }
+  .imgs {
+    justify-content: center;
+    overflow: initial;
+  }
+
+  .text {
+    margin-top: -9rem;
+  }
+  .heading {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .imgs {
+    background-image: url(./images/bg-pattern-mobile.svg);
+    background-position: top;
+    background-size: 40%;
+    background-repeat: no-repeat;
+  }
+}
